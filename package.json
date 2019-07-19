@@ -1,0 +1,24 @@
+{
+  "name": "ajax-photo-search-app",
+  "version": "1.0.0",
+  "description": "One app photo-search app using AJAX",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeugimAtreides/AJAX-Photo-Search-App.git"
+  },
+  "keywords": [
+    "AJAX",
+    "Photo-Search"
+  ],
+  "author": "M.E. Villarreal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeugimAtreides/AJAX-Photo-Search-App/issues"
+  },
+  "homepage": "https://github.com/LeugimAtreides/AJAX-Photo-Search-App#readme"
+}
