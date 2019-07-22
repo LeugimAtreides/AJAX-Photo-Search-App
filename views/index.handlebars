@@ -1,24 +1,11 @@
-{{!-- This div will contain the overall background image --}}
-<div class="container.fluid" id="home">
-  <div class="row">
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="layouts/main.handlebars">Star Gazer</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">GitHub Link</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-          Ad Astra
-        </span>
-    </nav>
+{{!-- These divs wil contain the search elements --}}
+  <div class="row searchbar justify-content-center">
+    <div class="col-lg-12" id="search-title">SEARCH THE COSMOS</div>
+  </div>
+  <div class="row searchbar justify-content-center">
+    <!-- Search form -->
+    <form class="form lg-form form-lg active-cyan-2 mt-2">
+      <input type="submit" class="form-control form-control-xl mr-3" style="width: 40vw; background-image:url('../img/271373.jpg'); color: white; text-align: center;" type="text" placeholder="To Infinity and Beyond" id="search"aria-label="Search">
+    </form>
   </div>
 </div>

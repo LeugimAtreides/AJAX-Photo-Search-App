@@ -4,8 +4,8 @@
 
 @font-face {
   font-family: 'nasalizationregular';
-  src: url('nasalization-rg-webfont.woff2') format('woff2'),
-       url('nasalization-rg-webfont.woff') format('woff');
+  src: url('../fonts/nasalization-rg-webfont.woff2') format('woff2'),
+       url('../fonts/nasalization-rg-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
@@ -13,16 +13,42 @@
 
 body, html {
   height: 100%;
-  font-family: 'nasalizationregular' sans-serif;
+  font-family: "nasalizationregular" ,sans-serif;
+}
+#nav-header-text {
+  font-family: "nasalizationregular", sans-serif;
+ 
 }
 
+#subtitle {
+  font-size: 12px;
+  margin-left: 10px
+}
 #home {
 background-image: url("../img/270728.jpg");  
   /* Full height */
   height: 100%;
+  min-width: 100%;
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.searchbar {
+  background-color: transparent;
+  z-index: 334959;
+  height: 30vh;
+  width: 100vw;
+  position: relative;
+  top: 30vh;
+  text-align: center;
+}
+
+#search-title {
+  font-size: 9vh;
+  font-family: 'nasalizationregular', sans-serif;
+  font-weight: bold;
+  color: white;
 }
