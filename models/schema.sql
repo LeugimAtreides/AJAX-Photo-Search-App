@@ -1,5 +1,0 @@
-DROP DATABASE IF EXISTS photo_app_db;
-CREATE DATABASE photo_app_db;
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;

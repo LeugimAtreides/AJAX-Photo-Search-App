@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/LeugimAtreides/AJAX-Photo-Search-App/issues"
   },
-  "homepage": "https://github.com/LeugimAtreides/AJAX-Photo-Search-App#readme"
+  "homepage": "https://github.com/LeugimAtreides/AJAX-Photo-Search-App#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1",
+    "morgan": "^1.9.1"
+  }
 }

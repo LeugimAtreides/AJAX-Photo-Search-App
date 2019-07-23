@@ -52,3 +52,23 @@ background-image: url("../img/270728.jpg");
   font-weight: bold;
   color: white;
 }
+/* this is the styling that returns empty search results */
+.no-results {
+  background-image: url("../img/no-results.jpg");
+  height: 100%;
+  min-width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.no-results-message {
+  font-size: 9vh;
+  font-family: 'nasalizationregular', sans-serif;
+  font-weight: bold;
+  color: white;
+
+}
