@@ -1,12 +1,11 @@
 
 $(function(){
-
+  var photoContainer = $("<div>")
+  photoContainer.addClass("photo-container")
   // these variables will help shorten the ajaj call
   $("#find-photo").on("click", function(event){
     // prevent page reload on submit
     event.preventDefault()
-
-    var photoContainer = $(".photo-container");
 
     // setting up variables that will be passed into AJAX call
     var query = $("#search").val().trim()
@@ -14,43 +13,53 @@ $(function(){
     var queryURL = "https://api.unsplash.com/search/photos?page=1&query=" + query + "&client_id=" + key + "&per_page=25&collections=space"
 
     // add the photo container to the bottom of the search div
-    var searchID = $("#search-now");
-    searchID.append(photoContainer);
+    var searchDiv = $("#search-box")
+
+    searchDiv.append(photoContainer);
     // the 'get' method here will display an empty image div with an apology to the user for not bringing back any photos, or bring back all of the photos
-    $.get(queryURL, function(data) {
-      console.log("Photos", data);
-      photos = data.results[0].url.small;
-      if (!photos || !photos.length) {
-        displayEmpty()
-      } else {
-        initializeRows(photos);
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response){
+
+      // DOM manipulation for the container of the photos
+      photoContainer.empty();
+      var resultsRow = $("<div>").addClass("row").attr("id", "results-row");
+      photoContainer.append(resultsRow);
+      var resultsCol = $("<div>").addClass("col-lg-12 justify-content-start");
+      $("#results-row").append(resultsCol);
+      var p = $("<p>");
+      p.addClass("image-place");
+      resultsCol.append(p);
+
+      // empty array to hold response results so that they can be looped through
+      var results = [];
+
+      // declaring the results as a variable and pushing that into the empty array
+      var photo = response.results
+      results.push(photo);
+
+      // loop that will go through the responses
+      for (let i = 0; i < results.length; i++) {
+        
+        var photoIndex = results[i]
+        
+        // inner loop that goes through the results array within each response
+        photoIndex.forEach(function(element){
+        
+          element = element.urls.small
+
+          console.log(element);
+
+          // DOM manipulation for inserting each image
+          var img = $("<img>");
+          img.attr("src", element);
+          img.addClass("image img-responsive");
+          $(".image-place").append(img);
+
+        });
       }
+      $("#search").val("");
     })
   })
-  // this gives functionality if no search results are returned
-  function displayEmpty(){
-    photoContainer.empty();
-    var noResultsRow = photoContainer.html("<div></div>");
-    noResultsRow = noResultsRow.addClass("row");
-    var noResultsCol = noResultsRow.append("<div></div>");
-    var noResultsColFormatted = noResultsCol.addClass("col-lg-12 justify-content-center");
-    var noResultsImage = noResultsColFormatted.append("<div></div>");
-    var noResultsImageFormatted = noResultsImage.addClass("img-responsive no-results text-center");
-    var noResultsMessage = noResultsImageFormatted.html("<h1>Sorry Human Our Astronaut Couldn't Find The Images You Sought!</h1>");
-    noResultsMessage.addClass("no-results-message")
-  }
 })
-
-// this function will place each of the photos in a neat organized dynamically generated manner
-function initializeRows(photos){
-  photoContainer.empty();
-  var resultsRow = photoContainer.html("<div></div>");
-  resultsRow = resultsRow.addClass("row");
-  var resultsCol = resultsRow.append("<div></div>");
-  resultsCol = resultsCol.addClass("col-lg-12 justify-content-start");
-
-  // create a loop that takes each photo and inserts it into the page with set attributes
-  $.each(photos, function(i, item){
-    $("<img />").attr("src", item).appendTo(resultsCol);
-  })
-}

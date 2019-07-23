@@ -12,8 +12,9 @@
 }
 
 body, html {
-  height: 100%;
+  height: 100vh;
   font-family: "nasalizationregular" ,sans-serif;
+  overflow: auto;
 }
 #nav-header-text {
   font-family: "nasalizationregular", sans-serif;
@@ -34,6 +35,7 @@ background-image: url("../img/270728.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: auto;
 }
 
 .searchbar {
@@ -42,7 +44,7 @@ background-image: url("../img/270728.jpg");
   height: 30vh;
   width: 100vw;
   position: relative;
-  top: 30vh;
+  top: 38vh;
   text-align: center;
 }
 
@@ -53,22 +55,17 @@ background-image: url("../img/270728.jpg");
   color: white;
 }
 /* this is the styling that returns empty search results */
-.no-results {
-  background-image: url("../img/no-results.jpg");
-  height: 100%;
-  min-width: 100%;
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
+.image {
+  margin: 5px;
+  border: solid white 4px;
+  max-height: 250px;
+  max-width: 250px;
+  min-height: 250px;
+  min-width: 250px;
 }
 
-.no-results-message {
-  font-size: 9vh;
-  font-family: 'nasalizationregular', sans-serif;
-  font-weight: bold;
-  color: white;
-
+.image-results {
+  padding: 10px;
+  margin: 10px;
 }
